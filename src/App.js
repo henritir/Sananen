@@ -49,8 +49,8 @@ function App() {
     //console.log(tulos);
     vastaukset.push(tulos);
     setKesken("");
-    console.log(vastaukset);
-    console.log(kirjainv);
+    //console.log(vastaukset);
+    //console.log(kirjainv);
 
   }
 
