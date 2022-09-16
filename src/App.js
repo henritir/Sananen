@@ -7,7 +7,7 @@ import './App.css';
 function App() {
 
   const [syote, setSyote] = useState("");
-  const [sana, setSana] = useState("maito");
+  const [sana, setSana] = useState("muori");
   const [kesken, setKesken] = useState("");
   const [tulos, setTulos] = useState([]);
   const [vastaukset, setVastaukset] = useState([]);
@@ -17,6 +17,10 @@ function App() {
 
   while (kirjainv.length < 30){
     kirjainv.push("black");
+  }
+
+  const formatArea = (val) => {
+    return (<span>{val}&#11013;</span>)
   }
 
 
@@ -54,6 +58,16 @@ function App() {
 
   }
 
+  const ButtonClicked = (e) => {
+    if(kesken.length<5){
+      setKesken(kesken+e);
+    }
+  }
+
+  const BackspaceClicked = () => {
+    setKesken(kesken.slice(0,kesken.length-1));
+  }
+
 
   return (
 
@@ -83,21 +97,22 @@ function App() {
           <tr>
           {kirjaimet.slice(0,11).map((a,i)=>{
             return(
-              <td key={i}><button className='App-button' style={{backgroundColor:kirjainv[kirjaimet.indexOf(a)]}} value={a} onClick={(e)=>setKesken(kesken+e.target.value)}>{a}</button></td>
+              <td key={i}><button className='App-button' style={{backgroundColor:kirjainv[kirjaimet.indexOf(a)]}} value={a} onClick={(e)=>ButtonClicked(e.target.value)}>{a}</button></td>
             )
           })}
          </tr>
          <tr>
           {kirjaimet.slice(11,22).map((a,i)=>{
             return(
-              <td key={i}><button className='App-button' style={{backgroundColor:kirjainv[kirjaimet.indexOf(a)]}} value={a} onClick={(e)=>setKesken(kesken+e.target.value)}>{a}</button></td>
+              <td key={i}><button className='App-button' style={{backgroundColor:kirjainv[kirjaimet.indexOf(a)]}} value={a} onClick={(e)=>ButtonClicked(e.target.value)}>{a}</button></td>
             )
           })}
          </tr>
          <tr>
+         <td colSpan={2}><button className='App-button' style={{width:"100px"}} onClick={() => BackspaceClicked()}>{formatArea()}</button></td>
           {kirjaimet.slice(22,29).map((a,i)=>{
             return(
-              <td key={i}><button className='App-button' style={{backgroundColor:kirjainv[kirjaimet.indexOf(a)]}} value={a} onClick={(e)=>setKesken(kesken+e.target.value)}>{a}</button></td>
+              <td key={i}><button className='App-button' style={{backgroundColor:kirjainv[kirjaimet.indexOf(a)]}} value={a} onClick={(e)=>ButtonClicked(e.target.value)}>{a}</button></td>
             )
           })}
           <td colSpan={2}><button className='App-button' style={{width:"100px"}} onClick={() => EnterButtonClicked()}>Enter</button></td>
