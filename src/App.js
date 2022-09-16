@@ -2,11 +2,9 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 
-
-
 function App() {
 
-  const [syote, setSyote] = useState("");
+  const [yrit, setYrit] = useState([]);
   const [sana, setSana] = useState("muori");
   const [kesken, setKesken] = useState("");
   const [tulos, setTulos] = useState([]);
@@ -23,9 +21,8 @@ function App() {
     return (<span>{val}&#11013;</span>)
   }
 
-
   const EnterButtonClicked = () => {
-
+    yrit.push(kesken);
     setTulos([]);
 
     for (let i = 0; i < kesken.length; i++) {
@@ -44,16 +41,16 @@ function App() {
         }
       }
       else {
-        tulos.push({"kirjain": k,"vari": "black"})
+        tulos.push({"kirjain": k,"vari": "grey"})
         kirjainv.splice(kirjaimet.indexOf(k),1,"grey")
       }
     }
 
     //console.log(kirjaimet.indexOf("A"));
-    //console.log(tulos);
+    console.log(tulos);
     vastaukset.push(tulos);
     setKesken("");
-    //console.log(vastaukset);
+    console.log(vastaukset);
     //console.log(kirjainv);
 
   }
@@ -77,6 +74,26 @@ function App() {
       <input className='App-input' value={kesken} onChange={(e) => setKesken(e.target.value)} type="text" maxLength={5} size={5}></input>
       
       <br></br>
+
+      <table className='App-table'>
+
+        <tbody className='App-tulokset'>
+          
+          
+            {vastaukset.map((a,i)=>{
+              return(
+                <tr key={i}>{a.map((a,i)=>{
+                  return(
+                    <td style={{backgroundColor:a.vari}} key={i}>{a.kirjain}</td>
+                  )
+                })}
+                  
+                </tr>
+              )
+            })}
+          
+        </tbody>
+      </table>
       
       <div>
         {vastaukset.map((a,i)=>{
