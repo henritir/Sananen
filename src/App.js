@@ -1,11 +1,11 @@
-
 import { useEffect, useState } from 'react';
 import './App.css';
+import data from "./db.json"
 
 function App() {
 
   const [yrit, setYrit] = useState([]);
-  const [sana, setSana] = useState("muori");
+  const [sana, setSana] = useState(data[Math.floor(Math.random() * data.length)]);
   const [kesken, setKesken] = useState("");
   const [tulos, setTulos] = useState([]);
   const [vastaukset, setVastaukset] = useState([]);
@@ -23,8 +23,8 @@ function App() {
     return (<span>{val}&#11013;</span>)
   }
 
-  const Tarkistus =() =>{
-    if(kesken.length==5){
+  const Tarkistus = () => {
+    if (kesken.length == 5) {
       EnterButtonClicked();
     }
   }
@@ -37,37 +37,38 @@ function App() {
       setVoitto(true);
     }
     else {
-      if(vastaukset.length==5){
+      if (vastaukset.length == 5) {
         setHavio(true);
       }
     }
 
-    for (let i = 0; i < kesken.length; i++) {
-      let k = kesken.charAt(i);
-      if (k == sana.charAt(i)) {
-        tulos.push({ "kirjain": k, "vari": "lightgreen" })
-        kirjainv.splice(kirjaimet.indexOf(k), 1, "lightgreen")
-      }
-      else if (sana.includes(k)) {
-        tulos.push({ "kirjain": k, "vari": "lightyellow" })
-        if (kirjainv[kirjaimet.indexOf(k)] != "lightgreen") {
-          kirjainv.splice(kirjaimet.indexOf(k), 1, "lightyellow")
+    if (!voitto && !havio) {
+
+      for (let i = 0; i < kesken.length; i++) {
+        let k = kesken.charAt(i);
+        if (k == sana.charAt(i)) {
+          tulos.push({ "kirjain": k, "vari": "lightgreen" })
+          kirjainv.splice(kirjaimet.indexOf(k), 1, "lightgreen")
+        }
+        else if (sana.includes(k)) {
+          tulos.push({ "kirjain": k, "vari": "lightyellow" })
+          if (kirjainv[kirjaimet.indexOf(k)] != "lightgreen") {
+            kirjainv.splice(kirjaimet.indexOf(k), 1, "lightyellow")
+          }
+        }
+        else {
+          tulos.push({ "kirjain": k, "vari": "grey" })
+          kirjainv.splice(kirjaimet.indexOf(k), 1, "grey")
         }
       }
-      else {
-        tulos.push({ "kirjain": k, "vari": "grey" })
-        kirjainv.splice(kirjaimet.indexOf(k), 1, "grey")
-      }
+
+      //console.log(tulos);
+      vastaukset.push(tulos);
+      setKesken("");
+      laskuri.pop();
+      //console.log(vastaukset);
+      //console.log(kirjainv);
     }
-
-
-    //console.log(tulos);
-    vastaukset.push(tulos);
-    setKesken("");
-    laskuri.pop();
-    //console.log(vastaukset);
-    //console.log(kirjainv);
-
   }
 
   const ButtonClicked = (e) => {
@@ -119,7 +120,7 @@ function App() {
       </table>
 
       {voitto ? <h2>Voitit pelin</h2> : null}
-      {havio ? <h2>Vitun luuseri</h2>:null}
+      {havio ? <h2>Vitun luuseri</h2> : null}
 
       <table className='App-table'>
         <tbody>
@@ -138,13 +139,13 @@ function App() {
             })}
           </tr>
           <tr>
-            <td colSpan={2}><button className='App-button' style={{ width: "100px" }} onClick={() => BackspaceClicked()}>{formatArea()}</button></td>
+            <td colSpan={2}><button className='App-button' onClick={() => BackspaceClicked()}>{formatArea()}</button></td>
             {kirjaimet.slice(22, 29).map((a, i) => {
               return (
                 <td key={i}><button className='App-button' style={{ backgroundColor: kirjainv[kirjaimet.indexOf(a)] }} value={a} onClick={(e) => ButtonClicked(e.target.value)}>{a}</button></td>
               )
             })}
-            <td colSpan={2}><button className='App-button' style={{ width: "100px" }} onClick={() => Tarkistus()}>Enter</button></td>
+            <td colSpan={2}><button className='App-button'  onClick={() => Tarkistus()}>Enter</button></td>
           </tr>
         </tbody>
       </table>

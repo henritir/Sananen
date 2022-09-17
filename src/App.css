@@ -14,10 +14,10 @@
 .App-button {
   color: rgb(214, 116, 173);
   font-weight: bold;
-  border-radius: 5px;
-  width: 50px;
+  border-radius: 10%;
+  width: 100%;
   height: 50px;
-  font-size: 30px;
+  font-size: 100%;
 }
 
 .App-tulokset td{
@@ -35,7 +35,7 @@
 .App-table {
   margin: auto;
   width: 50%;
-  max-width: 400px;
+  max-width: 500px;
 }
 
 .App-logo {
