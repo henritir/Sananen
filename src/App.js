@@ -108,11 +108,11 @@ function App() {
 
           {laskuri.map((a, i) => {
             return (<tr key={i}>
-              <td style={{ backgroundColor: "gray", color: 'gray' }}>k</td>
-              <td style={{ backgroundColor: "gray", color: 'gray' }}>k</td>
-              <td style={{ backgroundColor: "gray", color: 'gray' }}>k</td>
-              <td style={{ backgroundColor: "gray", color: 'gray' }}>k</td>
-              <td style={{ backgroundColor: "gray", color: 'gray' }}>k</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
             </tr>)
           })}
 
