@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import data from "./db.json"
+import sanalista from "./sanalista.json";
 
 function App() {
 
   const [yrit, setYrit] = useState([]);
-  const [sana, setSana] = useState(data[Math.floor(Math.random() * data.length)]);
+  const [sana, setSana] = useState(sanalista[Math.floor(Math.random() * sanalista.length)]);
   const [kesken, setKesken] = useState("");
   const [tulos, setTulos] = useState([]);
   const [vastaukset, setVastaukset] = useState([]);
@@ -14,6 +14,7 @@ function App() {
   const [kirjainv, setKirjainv] = useState([]);
   const [laskuri, setLaskuri] = useState([5, 5, 5, 5, 5,5]);
   const [havio, setHavio] = useState(false);
+  const [kopio, setKopio] = useState([]);
 
   while (kirjainv.length < 30) {
     kirjainv.push("black");
@@ -24,7 +25,7 @@ function App() {
   }
 
   const Tarkistus = () => {
-    if (kesken.length == 5) {
+    if (sanalista.includes(kesken)) {
       EnterButtonClicked();
     }
   }
@@ -120,7 +121,7 @@ function App() {
       </table>
 
       {voitto ? <h2>Voitit pelin</h2> : null}
-      {havio ? <h2>Vitun luuseri</h2> : null}
+      {havio ? <div><h2>Vitun luuseri</h2> <h2>Oikea sana: {sana}</h2> </div>: null}
 
       <table className='App-table'>
         <tbody>
@@ -149,9 +150,7 @@ function App() {
           </tr>
         </tbody>
       </table>
-
     </div>
-
 
   );
 }
