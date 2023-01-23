@@ -120,7 +120,7 @@ function App() {
         </tbody>
       </table>
 
-      {voitto ? <h2>Voitit pelin</h2> : null}
+      {voitto ? <h2>Voitit pelin!</h2> : null}
       {havio ? <div><h2>Hävisit pelin</h2> <h2>Oikea sana: {sana}</h2> </div>: null}
 
       <table className='App-table'>
