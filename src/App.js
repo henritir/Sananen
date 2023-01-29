@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import sanalista from "./sanalista.json";
 
@@ -82,12 +82,21 @@ function App() {
     setKesken(kesken.slice(0, kesken.length - 1));
   }
 
+  const keyPressed = (e) =>{
+    if(e.key==='Enter'){
+      Tarkistus();
+    }
+    if(e.keycode == 8){
+      BackspaceClicked();
+    }
+  }
+
   return (
 
     <div className="App">
       <h1>SANANEN</h1>
       <br></br>
-      <input className='App-input' value={kesken} onChange={(e) => setKesken(e.target.value)} type="text" maxLength={5} size={5}></input>
+      <input className='App-input' value={kesken} onChange={(e) => setKesken(e.target.value)} onKeyDown={keyPressed} type="text" maxLength={5} size={5}></input>
 
       <br></br>
 
