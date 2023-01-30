@@ -12,9 +12,10 @@ function App() {
   const [voitto, setVoitto] = useState(false);
   const [kirjaimet, setKirjaimet] = useState(["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "å", "a", "s", "d", "f", "g", "h", "j", "k", "l", "ö", "ä", "z", "x", "c", "v", "b", "n", "m"]);
   const [kirjainv, setKirjainv] = useState([]);
-  const [laskuri, setLaskuri] = useState([5, 5, 5, 5, 5,5]);
+  const [laskuri, setLaskuri] = useState([5, 5, 5, 5, 5, 5]);
   const [havio, setHavio] = useState(false);
   const [kopio, setKopio] = useState([]);
+  const [ohjeet, setOhjeet] = useState(false);
 
   while (kirjainv.length < 30) {
     kirjainv.push("black");
@@ -82,11 +83,11 @@ function App() {
     setKesken(kesken.slice(0, kesken.length - 1));
   }
 
-  const keyPressed = (e) =>{
-    if(e.key==='Enter'){
+  const keyPressed = (e) => {
+    if (e.key === 'Enter') {
       Tarkistus();
     }
-    if(e.keycode == 8){
+    if (e.keycode == 8) {
       BackspaceClicked();
     }
   }
@@ -94,7 +95,23 @@ function App() {
   return (
 
     <div className="App">
+      <button className='App-button' style={{ width: '40px', position: 'absolute', right: '0' }} onClick={()=>setOhjeet(!ohjeet)}>?</button>
       <h1>SANANEN</h1>
+      {ohjeet ?
+        <div style={{marginLeft:'30%', marginRight:'30%', border:'4px solid black'}}>
+          <h3 style={{textAlign:'left', marginLeft:'4%'}}>Miten pelata</h3>
+            <ul style={{textAlign:'left'}}>
+              <li>Arvaa sana kuudella yrityksellä</li>
+              <li>Jokaisen arvauksen täytyy olla oikea 5-kirjaiminen suomen kielen sana</li>
+              <li>Laattojen väri kertoo, kuinka lähellä arvauksesi oli oikeaa sanaa</li>
+            </ul>
+            <p style={{backgroundColor:'lightgreen', marginLeft:'4%',marginRight:'4%',textAlign:'left'}}>Vaalean vihreällä merkityt kirjaimet ovat oikealla paikalla sanassa</p>
+            <p style={{backgroundColor:'lightyellow', marginLeft:'4%', marginRight:'4%', textAlign:'left'}}>Keltaisella merkityt kirjaimet sisältyvät sanaan, mutta ovat väärällä paikalla</p>
+            <p style={{backgroundColor:'gray', marginLeft:'4%', marginRight:'4%', textAlign:'left'}}>Sanassa ei ole harmaalla merkittyjä kirjaimia</p>
+            <button className='App-button' style={{postion:'absolute', left:'50%', width:'60px'}} onClick={()=>setOhjeet(!ohjeet)}>Sulje</button>
+        </div>
+        : null}
+
       <br></br>
       <input className='App-input' value={kesken} onChange={(e) => setKesken(e.target.value)} onKeyDown={keyPressed} type="text" maxLength={5} size={5}></input>
 
@@ -130,7 +147,7 @@ function App() {
       </table>
 
       {voitto ? <h2>Voitit pelin!</h2> : null}
-      {havio ? <div><h2>Hävisit pelin</h2> <h2>Oikea sana: {sana}</h2> </div>: null}
+      {havio ? <div><h2>Hävisit pelin</h2> <h2>Oikea sana: {sana}</h2> </div> : null}
 
       <table className='App-table'>
         <tbody>
@@ -155,7 +172,7 @@ function App() {
                 <td key={i}><button className='App-button' style={{ backgroundColor: kirjainv[kirjaimet.indexOf(a)] }} value={a} onClick={(e) => ButtonClicked(e.target.value)}>{a}</button></td>
               )
             })}
-            <td colSpan={2}><button className='App-button'  onClick={() => Tarkistus()}>Enter</button></td>
+            <td colSpan={2}><button className='App-button' onClick={() => Tarkistus()}>Enter</button></td>
           </tr>
         </tbody>
       </table>
