@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/omaprojekti/static/css/main.341a768f.css",
-    "main.js": "/omaprojekti/static/js/main.72f6221e.js",
+    "main.css": "/omaprojekti/static/css/main.c94c3af6.css",
+    "main.js": "/omaprojekti/static/js/main.a20243cf.js",
     "static/js/787.4d5d4ab4.chunk.js": "/omaprojekti/static/js/787.4d5d4ab4.chunk.js",
     "index.html": "/omaprojekti/index.html",
-    "main.341a768f.css.map": "/omaprojekti/static/css/main.341a768f.css.map",
-    "main.72f6221e.js.map": "/omaprojekti/static/js/main.72f6221e.js.map",
+    "main.c94c3af6.css.map": "/omaprojekti/static/css/main.c94c3af6.css.map",
+    "main.a20243cf.js.map": "/omaprojekti/static/js/main.a20243cf.js.map",
     "787.4d5d4ab4.chunk.js.map": "/omaprojekti/static/js/787.4d5d4ab4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.341a768f.css",
-    "static/js/main.72f6221e.js"
+    "static/css/main.c94c3af6.css",
+    "static/js/main.a20243cf.js"
   ]
 }
