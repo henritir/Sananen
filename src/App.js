@@ -94,11 +94,11 @@ function App() {
 
   return (
 
-    <div className="App">
+    <div className="App" style={{minHeight:'100vh'}}>
       <button className='App-button' style={{ width: '40px', position: 'absolute', right: '0' }} onClick={()=>setOhjeet(!ohjeet)}>?</button>
-      <h1>SANANEN</h1>
+      <h1 style={{margin:'0px'}}>SANANEN</h1>
       {ohjeet ?
-        <div style={{marginLeft:'30%', marginRight:'30%', border:'4px solid black'}}>
+        <div style={{margin:'auto', border:'4px solid black', minWidth:'200px', maxWidth:'500px', backgroundColor:'lightgray'}}>
           <h3 style={{textAlign:'left', marginLeft:'4%'}}>Miten pelata</h3>
             <ul style={{textAlign:'left'}}>
               <li>Arvaa sana kuudella yrityksellä</li>
