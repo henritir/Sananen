@@ -70,6 +70,7 @@ function App() {
       laskuri.pop();
       //console.log(vastaukset);
       //console.log(kirjainv);
+      
     }
   }
 
