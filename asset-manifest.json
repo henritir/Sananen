@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/omaprojekti/static/css/main.c94c3af6.css",
-    "main.js": "/omaprojekti/static/js/main.74eca385.js",
-    "static/js/787.4d5d4ab4.chunk.js": "/omaprojekti/static/js/787.4d5d4ab4.chunk.js",
-    "index.html": "/omaprojekti/index.html",
-    "main.c94c3af6.css.map": "/omaprojekti/static/css/main.c94c3af6.css.map",
-    "main.74eca385.js.map": "/omaprojekti/static/js/main.74eca385.js.map",
-    "787.4d5d4ab4.chunk.js.map": "/omaprojekti/static/js/787.4d5d4ab4.chunk.js.map"
+    "main.css": "/sananen/static/css/main.c94c3af6.css",
+    "main.js": "/sananen/static/js/main.c70f51a2.js",
+    "static/js/787.9e0c2f7e.chunk.js": "/sananen/static/js/787.9e0c2f7e.chunk.js",
+    "index.html": "/sananen/index.html",
+    "main.c94c3af6.css.map": "/sananen/static/css/main.c94c3af6.css.map",
+    "main.c70f51a2.js.map": "/sananen/static/js/main.c70f51a2.js.map",
+    "787.9e0c2f7e.chunk.js.map": "/sananen/static/js/787.9e0c2f7e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c94c3af6.css",
-    "static/js/main.74eca385.js"
+    "static/js/main.c70f51a2.js"
   ]
 }
